@@ -27,4 +27,20 @@ public class TopicService {
     public void addTopics(Topics topics) {
         topicsList.add(topics);
     }
+
+    public void updateTopic(String id, Topics topics) {
+       /*  for ( int i = 0; i < topicsList.size(); i++){
+            Topics t = topicsList.get(i);
+            if(t.getId().equals(id)){
+                topicsList.set(i,topics);
+                return;
+            }
+        } */
+        /* Lambda Function */
+        topicsList.stream()
+                .filter(t -> t.getId().equals(id))
+                .findFirst()
+                .ifPresent(t -> topicsList.set(topicsList.indexOf(t), topics));
+
+    }
 }
