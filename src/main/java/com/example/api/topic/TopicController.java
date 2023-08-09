@@ -1,6 +1,7 @@
 package com.example.api.topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,12 @@ public class TopicController {
 
     @RequestMapping("/topics")
     public List<Topics> getAllTopics(){
+
         return topicService.getAllTopics();
+    }
+
+    @RequestMapping("/topics/{id}")    //Added {id} for the path
+    public Topics getInfoById(@PathVariable String id){         // @PathVariable knows the "id" that we are expecting info
+        return topicService.getTopicById(id);
     }
 }
