@@ -22,6 +22,10 @@ public class TopicController {
     public Topics getInfoById(@PathVariable String id){         // @PathVariable knows the "id" that we are expecting info
         return topicService.getTopicById(id);
     }
+    /*
+    POST Request Method for adding Topic in JSON
+    @Request Method Important or else it will add null to the list
+     */
     @RequestMapping(method = RequestMethod.POST , value = "/topics")
     public void addTopic(@RequestBody Topics topics){
         topicService.addTopics(topics);
