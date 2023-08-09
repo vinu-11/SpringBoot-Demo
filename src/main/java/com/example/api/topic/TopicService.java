@@ -43,4 +43,8 @@ public class TopicService {
                 .ifPresent(t -> topicsList.set(topicsList.indexOf(t), topics));
 
     }
+
+    public void deleteTopic(String id) {
+        topicsList.removeIf(topics -> topics.getId().equals(id));
+    }
 }
